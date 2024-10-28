@@ -1,0 +1,13 @@
+<h2>Search Results:</h2>
+{{#each movies}}
+    <div>
+        <p><strong>Movie ID:</strong> {{this.Movie_ID}}</p>
+        <p><strong>Title:</strong> {{this.Title}}</p>
+        <p><strong>Year:</strong> {{this.Year}}</p>
+        <p><strong>Genre:</strong> {{this.Genre}}</p>
+        <p><strong>Director:</strong> {{this.Director}}</p>
+        <hr>
+    </div>
+{{else}}
+    <p>No movies found with that title. Please try again.</p>
+{{/each}}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    {{> header}}
+
+    <div class="content">
+        {{#if movies.length}}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Movie ID</th>
+                        <th>Title</th>
+                        <th>Year</th>
+                        <th>Genre</th>
+                        <th>Director</th>
+                        <th>Rating</th>
+                        <th>Metascore</th>
+                        <th>Poster</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each movies}}
+                        <tr class="{{highlightIfBlank this.Metascore}}">
+                            <td>{{this.Movie_ID}}</td>
+                            <td>{{this.Title}}</td>
+                            <td>{{this.Year}}</td>
+                            <td>{{this.Genre}}</td>
+                            <td>{{this.Director}}</td>
+                            <td>{{this.Rated}}</td>
+                            <td>{{#if (isMetascoreValid this.Metascore)}}{{this.Metascore}}{{else}}N/A{{/if}}</td>
+                            <td><img src="{{this.Poster}}" alt="{{this.Title}} Poster" style="width: 50px;"></td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{else}}
+            <p>No movie data available.</p>
+        {{/if}}
+    </div>
+
+    {{> footer}}
+</body>
+</html>
